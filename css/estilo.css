@@ -1,0 +1,1292 @@
+/*Estilos iniciales para la página*/
+
+* {margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+  box-sizing: border-box; /*el relleno y el borde total esten incluidos todo dentro de la caja*/
+}
+/*Llamamos una fuente desde un archivo*/
+
+@font-face{font-family:"mi_fuente";
+           src: url(../fuente/Courgette-Regular.ttf) format('truetype');
+}
+body {background-color: rgb(226, 226, 226);
+}
+/*FILAS - ESTILOS COMUNES PARA TODAS*/
+
+#filas {position: relative;
+        margin: auto;
+        width: 100%;
+        height: auto;
+        clear: both; /*Hace limpieza, respetando solo los elementos flotantes*/
+        display: table; /*Propiedad que respeta el area creada por las cajjas flotantes*/
+        
+}
+
+/*CONTENEDOR*/
+
+.contenedor {position: relative;
+             margin: auto;
+             padding: 10px;
+             width: 100%;
+             height: auto;
+             background-color: rgb(226, 226, 226);
+}
+
+
+/*TRABAJAMOS PRIMERO PARA EL ESTILO MOBILE FIRST*/
+#filas .contenedor {position: fixed;
+                   display: flex;
+                   flex-direction: column;
+                   flex-wrap: wrap;
+                   z-index: 999;
+}
+#filas .contenedor .logo{width: 100%;
+                        font-family: "mi_fuente";
+                        font-size: 2.25em;
+                        text-shadow: 0px 4px 5px rgb(113, 86, 145);
+                        text-align: center;
+                        padding: 10px;
+}
+
+
+#filas .contenedor .link {width: 100%;
+                          font-size: 0.7rem;
+                          font-weight: bold;
+                          padding: 5px 5px;
+                          display: flex;
+                          flex-direction: row;
+                          justify-content: space-around;
+                          
+}
+#filas .contenedor .link .link1 {background-color: rgba(55, 44, 69, 0.85);
+                                
+                                border-color: rgba(55, 44, 69, 0.85);
+                                box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+                                color: white;
+                                width: 22%;
+                                height: 20%;
+                                border-radius: 5px;
+                                text-align: center;
+                                transition: all 600ms ease-out;
+                                cursor: pointer;
+}
+#filas .contenedor .link .link1:hover {color: blueviolet;
+                                       transform: scale(1.1);
+}
+.titulo1 h1 {width: 100%;
+            text-shadow: 0px 4px 5px rgb(113, 86, 145);
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30vw;
+            cursor: pointer;
+            transition: all 600ms ease-out;
+}
+.titulo1:hover h1{color: blueviolet;
+                  transform: scale(1.2);
+}
+#navegador {clear: both;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+}
+#navegador .paginas {width: 100%;
+                    margin: 4vw;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: center;
+                    align-items: center;
+}
+#navegador .paginas a{width: 50%;
+                      height: auto;
+                      padding: 5px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      transition: all 500ms ease-out;
+}
+#navegador .paginas a .icono {width: 50%;
+                          height: auto;
+                          cursor: pointer;
+}
+
+#navegador .paginas .icono:hover {transform: scale(1.1);
+}
+
+#navegador .boton {width: 35vw;
+                   height: 6vh;
+                   margin-top: 2vw;
+                   margin-bottom: 5vw;
+                   font-weight: bold;
+                   background-color: #4E00A5;
+                   border-radius: 5px;
+                   color: #E7E7E7;
+                   font-size: 1rem;
+                   box-shadow: 2px 5px 7px black;
+                   cursor: pointer;
+}
+#navegador .boton:hover {transform: scale(1.1);
+}
+#navegador .boton a:visited {color:#E7E7E7;
+                          font-size: 1rem;
+                          font-weight: bold;
+}
+#navegador .boton a:link{color: #E7E7E7;
+      
+      font-size: 1rem;
+      font-weight: bold;
+}
+#navegador .boton a:visited {color:#E7E7E7;
+          
+          font-size: 1rem;
+          font-weight: bold;
+}
+#navegador .boton a:active{color: #E7E7E7;
+        
+        font-size: 1rem;
+        font-weight: bold;
+}
+#titulo2 {width: 100%;
+          font-weight: bold;
+          text-shadow: 0px 4px 5px rgb(113, 86, 145);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-top: 5vw;
+          margin-bottom: 5vw;
+}
+#titulo2 .vacio{display: none;
+}
+
+/*TRABAJAMOS SOBRTE EL CONTENEDOR FIGURA: IMAGEN Y CAPA*/
+#imagen {width: 100%;  
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+#imagen figure {position: relative;
+                width: 95%;
+                height: auto;
+                 display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                border-radius: 6px;
+                box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+                cursor: pointer;}
+
+#imagen figure img {width: 100%;
+                    height: 100%;
+                    transition: all 500ms ease-out;
+}
+
+#imagen figure .capa {position: absolute;
+                      top: 0;
+                      width: 100%;
+                      height: 100%;
+                      background: rgba(113, 86, 145, 0.7);
+                      transition: all 600ms ease-out;
+                      opacity: 0;
+                      visibility: hidden;
+                      text-align: center;
+}
+/* USAMOS HOVER!!! TANTO EN CAJA PADRE (CONTENEDOR-> FIGURE) COMO CAJA HIJA
+(CAPA-> TEXTO Y PARRAFO) */
+
+#imagen figure:hover > .capa {opacity: 1;
+                              visibility: visible;
+}
+#imagen figure:hover > .capa h3{margin-top: 30%;
+                                margin-bottom: 5%;
+}
+
+/* DAMOS FORMATO AL TEXTO h3 Y AL PARRAFO, COMO COLOR, FUENTE,
+JUGAMOS CON LOS MARGENES DENTRO DE LA CAJA, ETC*/
+
+#imagen figure .capa h3{color: #fff;
+                        font-family: Quicksand;
+                        font-size: 2rem;
+                        font-weight: bold;
+                        text-shadow: 0px 6px 5px rgb(0,0,0);
+                        margin-bottom: 70%;
+                        transition: all 600ms ease-out;
+                        margin-top: 1vw;
+    }
+#imagen figure .capa p{color: #fff;
+                      font-family: Quicksand;
+                      font-weight: bold;
+                      font-size: 1.5rem;
+                      text-shadow: 0px 6px 5px rgb(0,0,0);
+                      line-height: 1.5;
+                      width: 100%;
+                      max-width: 220px;
+                      margin: auto;
+}
+
+/*POR ULTIMO CREAMOS EFECTO SOBRE LA IMAGEN CON HOVER*/
+
+#imagen figure:hover > img{
+    transform: scale(1.1)
+}
+#imagen .parrafo {width: 100%;
+                  text-indent: 1em;
+                  font-size: 1rem;
+                  margin-top: 5vw;
+                  padding: 15px;
+                  text-align: justify;
+}
+#imagen .parrafo2 {display: none;
+
+}
+.texto2 {width: 100%;
+        text-indent: 1em;
+        font-size: 1rem;
+        margin-top: 1vw;
+        padding: 15px;
+        text-align: justify;
+}
+
+.seccion2 {width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+.seccion2 iframe{width: 95%;
+              height: auto;
+              margin: 2.5%;}
+.seccion2 .ingredientes {width: 85%;
+                      background-color: rgba(55, 44, 69, 0.85);
+                      border-radius: 10px;
+                      padding: 2px;
+                      box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+}
+.seccion2 .titulo-lista {color: white;
+                      font-size: 1.3rem;
+                      font-weight: bold;
+                      text-shadow: 0px 4px 5px rgb(196, 188, 206);
+                      letter-spacing: 0.5rem;
+                      margin-top: 5vw;
+                     text-align: center;
+              
+}
+.seccion2 .lista {margin-top: 5vw;
+              padding-left: 5vh;
+              text-align: center;
+              font-size: 1.1rem;
+              color: #EFEDF1;
+              list-style-position: inside;
+              list-style-image: url(../imagenes/flecha.png);
+}
+.seccion2 .lista li {padding: 5px;
+}
+.texto4 {width: 95%;
+        padding: 15px;
+        margin: 2.5%;
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(55, 44, 69, 0.85);
+        border-radius: 10px;
+        padding: 2px;
+        box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+}
+.texto4 .titulo-lista {color: white;
+                      font-size: 1.3rem;
+                      font-weight: bold;
+                      text-shadow: 0px 4px 5px rgb(196, 188, 206);
+                      letter-spacing: 0.5rem;
+                      margin-top: 5vw;
+                     text-align: center;
+}
+
+.texto4 .lista2 {padding: 5px;
+                 text-align: justify;
+                 margin: 5vw;
+                 padding-left: 1vh;
+                 text-align: justify;
+                 font-size: 0.9rem;
+                 color: #EFEDF1;
+                    
+}
+.mapa {margin: 5px 10px;
+       text-align: center;
+       display: flex;
+       justify-content: center;
+}
+.redes {width: 100%;
+        padding: 10px;
+        margin-top: 5vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+}
+.redes .icono2{width: 50%;
+  height: auto;
+}
+.icono2:hover {transform: scale(1.3);
+              }
+
+#final {width: 100%;
+  background-color: black;
+  padding-top: 2vw;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#final .contactos .tit {font-size: 1rem;
+                        padding: 2px;
+                        text-align: center;
+}
+#final .contactos .medios {font-size: 0.75rem;
+  padding: 5px;
+  text-align: center;
+}
+#final .potrero {text-align: center;
+  margin-top: 5vw;
+  padding: 5px;
+  font-size: 0.75rem;
+  color: cyan;
+}
+.wsp {position:fixed;
+      z-index: 999;
+      border-radius: 50%;
+      bottom: 10px;
+      right: 0.5px;
+      }
+
+.wsp .icono3 {width: 50%;
+              height: auto;
+}
+
+.wsp:hover {transform: scale(1.1);
+}
+
+/*TRABAJAMOS PARA PANTALLAS DE 450-650px*/
+
+    @media (min-width: 450px) and (max-width: 650px){
+
+        #filas .contenedor .logo{width: 100%;
+                                font-family: "mi_fuente";
+                                font-size: 3.5em;
+                                text-shadow: 0px 4px 5px rgb(113, 86, 145);
+                                text-align: center;
+                                padding: 10px;
+        }
+        #filas .contenedor .link {width: 100%;
+                                  font-size: 1.25rem;
+                                  font-weight: bold;
+                                  padding: 5px 5px;
+                                  display: flex;
+                                  flex-direction: row;
+                                  justify-content: space-around;
+        }
+        #filas .contenedor .link .link1 {background-color: rgba(55, 44, 69, 0.85);
+                                        border-color: rgba(55, 44, 69, 0.85);
+                                        box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+                                        color: white;
+                                        width: 22%;
+                                        height: 30%;
+                                        border-radius: 5px;
+                                        text-align: center;
+                                        transition: all 600ms ease-out;
+                                        cursor: pointer;
+        }
+        #filas .contenedor .link .link1:hover {color: blueviolet;
+                                               transform: scale(1.1);
+        } 
+        .titulo1 h1 {width: 100%;
+                    text-shadow: 0px 4px 5px rgb(113, 86, 145);
+                    font-size: 3.8rem;
+                    font-weight: bold;
+                    text-align: center;
+                    padding: 10px;
+                    margin-top: 25vw;
+                    cursor: pointer;
+                    transition: all 600ms ease-out;
+        }
+        .titulo1:hover h1{color: blueviolet;
+                          transform: scale(1.2);
+        }
+        #navegador {clear: both;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+        }
+        #navegador .paginas {width: 100%;
+                            margin: 4vw;
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-content: center;
+                            align-items: center;
+        }
+        #navegador .paginas a{width: 50%;
+                              height: auto;
+                              padding: 5px;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              transition: all 500ms ease-out;
+        }
+        #navegador .paginas a .icono {width: 50%;
+                                  height: auto;
+                                  cursor: pointer;
+        }
+        #navegador .paginas .icono:hover {transform: scale(1.2);
+        }
+
+        #navegador .boton {width: 30vw;
+                           height: 8vh;
+                           margin-top: 2vw;
+                           margin-bottom: 5vw;
+                           font-weight: bold;
+                           background-color: #4E00A5;
+                           border-radius: 10px;
+                           color: #E7E7E7;
+                           font-size: 1.5rem;
+                           box-shadow: 2px 5px 7px black;
+                           cursor: pointer;
+        }
+        #navegador .boton a:visited {color:#E7E7E7;
+                          font-size: 1rem;
+                          font-weight: bold;
+        }
+        #navegador .boton a:link{color: #E7E7E7;
+              
+              font-size: 1rem;
+              font-weight: bold;
+        }
+        #navegador .boton a:visited {color:#E7E7E7;
+                  
+                  font-size: 1rem;
+                  font-weight: bold;
+        }
+        #navegador .boton a:active{color: #E7E7E7;
+                
+                font-size: 1rem;
+                font-weight: bold;
+        }
+        #navegador .boton:hover {transform: scale(1.1);
+        }
+
+        #titulo2 {width: 100%;
+                  font-size: 1.8rem;
+                  font-weight: bold;
+                  text-shadow: 0px 4px 5px rgb(113, 86, 145);
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  margin-top: 5vw;
+                  margin-bottom: 5vw;
+        }
+        #titulo2 .vacio{display: none;
+        }
+
+        /*TRABAJAMOS SOBRTE EL CONTENEDOR FIGURA: IMAGEN Y CAPA*/
+        #imagen {width: 100%;  
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+        }
+
+        #imagen figure {position: relative;
+                        width: 85%;
+                        height: auto;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        overflow: hidden;
+                        border-radius: 6px;
+                        box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+                        cursor: pointer;}
+
+        #imagen figure img {width: 100%;
+                            height: 100%;
+                            transition: all 500ms ease-out;
+        }
+
+        #imagen figure .capa {position: absolute;
+                              top: 0;
+                              width: 100%;
+                              height: 100%;
+                              background: rgba(113, 86, 145, 0.7);
+                              transition: all 600ms ease-out;
+                              opacity: 0;
+                              visibility: hidden;
+                              text-align: center;
+        }
+        /* USAMOS HOVER!!! TANTO EN CAJA PADRE (CONTENEDOR-> FIGURE) COMO CAJA HIJA
+        (CAPA-> TEXTO Y PARRAFO) */
+
+        #imagen figure:hover > .capa {opacity: 1;
+                                      visibility: visible;
+        }
+        #imagen figure:hover > .capa h3{margin-top: 30%;
+                                        margin-bottom: 5%;
+        }
+
+        /* DAMOS FORMATO AL TEXTO h3 Y AL PARRAFO, COMO COLOR, FUENTE,
+        JUGAMOS CON LOS MARGENES DENTRO DE LA CAJA, ETC*/
+
+        #imagen figure .capa h3{color: #fff;
+                                font-family: Quicksand;
+                                font-size: 2.5rem;
+                                font-weight: bold;
+                                text-shadow: 0px 6px 5px rgb(0,0,0);
+                                margin-bottom: 70%;
+                                transition: all 600ms ease-out;
+                                margin-top: 1vw;
+            }
+        #imagen figure .capa p{color: #fff;
+                              font-family: Quicksand;
+                              font-weight: bold;
+                              font-size: 1.5rem;
+                              text-shadow: 0px 6px 5px rgb(0,0,0);
+                              line-height: 1.5;
+                              width: 100%;
+                              max-width: 220px;
+                              margin: auto;
+        }
+
+        /*POR ULTIMO CREAMOS EFECTO SOBRE LA IMAGEN CON HOVER*/
+
+        #imagen figure:hover > img{
+            transform: scale(1.1)
+        }
+        #imagen .parrafo {width: 100%;
+                          text-indent: 1em;
+                          font-size: 1.25rem;
+                          margin-top: 5vw;
+                          padding: 15px;
+                          text-align: justify;
+        }
+        #imagen .parrafo2 {display: none;
+
+        }
+        .texto2 {width: 100%;
+                text-indent: 1em;
+                font-size: 1.25rem;
+                margin-top: 1vw;
+                padding: 15px;
+                text-align: justify;
+        }
+
+        #video {width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+        }
+        #video iframe {width: 95%;
+                       height: auto;
+                       margin: 2.5%;}
+        #video .ingredientes {width: 40%;
+                              background-color: rgba(55, 44, 69, 0.85);
+                              border-radius: 10px;
+                              padding: 2px;
+                              box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+
+        }
+        #video .titulo-lista {color: white;
+                              font-size: 1.10rem;
+                              font-weight: bold;
+                              text-shadow: 0px 4px 5px rgb(196, 188, 206);
+                              letter-spacing: 0.5rem;
+                              margin-top: 3vw;
+                             text-align: center;
+                             
+        }
+        #video .lista {margin-top: 5vw;
+                      padding-left: 1vh;
+                      text-align: center;
+                      font-size: 1.0rem;
+                      color: #EFEDF1;
+                      list-style-position: inside;
+                      list-style-image: url(../imagenes/flecha.png);
+        }
+
+
+        #video .lista li {padding: 2px;
+        }
+
+        .texto4 {width: 95%;
+          text-align: center;
+                padding: 15px;
+                margin:2.5%;
+                margin-top: 25px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(55, 44, 69, 0.85);
+                border-radius: 10px;
+                padding: 2px;
+                box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+
+        }
+        .texto4 .titulo-lista {color: white;
+                              font-size: 1.8rem;
+                              font-weight: bold;
+                              text-shadow: 0px 4px 5px rgb(196, 188, 206);
+                              letter-spacing: 0.5rem;
+                              margin-top: 5vw;
+                             text-align: center;
+        }
+
+        .texto4 .lista2 {padding: 5px;
+                         text-align: justify;
+                         margin: 5vw;
+                         padding-left: 1vh;
+                         text-align: justify;
+                         font-size: 1.1rem;
+                         color: #EFEDF1;
+                            
+        }
+
+        .redes {width: 100%;
+                padding: 10px;
+                margin-top: 5vw;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+        }
+        .redes .icono2{width: 65%;
+                      height: auto;
+        }
+        .icono2:hover {transform: scale(1.3);
+                      }
+
+        .wsp {position:fixed;
+              z-index: 999;
+              border-radius: 50%;
+              bottom: 10px;
+              right: 0.5px;
+              }
+
+        .wsp .icono3 {width: 50%;
+                      height: auto;
+        }
+
+        .wsp:hover {transform: scale(1.1);
+        }
+}
+/*TRABAJAMOS PARA PANTALLAS MAYORES A 650px*/
+
+    @media (min-width: 651px) and (max-width: 850px){
+
+        #filas .contenedor .logo{width: 100%;
+                                font-family: "mi_fuente";
+                                font-size: 2.8em;
+                                text-shadow: 0px 4px 5px rgb(113, 86, 145);
+                                text-align: center;
+                                padding: 10px;
+        }
+        #filas .contenedor .link {width: 100%;
+                                  font-size: 1.25rem;
+                                  font-weight: bold;
+                                  padding: 5px 5px;
+                                  display: flex;
+                                  flex-direction: row;
+                                  justify-content: space-around;
+        }
+        #filas .contenedor .link .link1 {background-color: rgba(55, 44, 69, 0.85);
+                                        border-color: rgba(55, 44, 69, 0.85);
+                                        box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+                                        color: white;
+                                        width: 20%;
+                                        height: 30%;
+                                        border-radius: 5px;
+                                        text-align: center;
+                                        transition: all 600ms ease-out;
+                                        cursor: pointer;
+        }
+        #filas .contenedor .link .link1:hover {color: blueviolet;
+                                               transform: scale(1.1);
+        } 
+        .titulo1 h1 {width: 100%;
+                    text-shadow: 0px 4px 5px rgb(113, 86, 145);
+                    font-size: 3.5rem;
+                    font-weight: bold;
+                    text-align: center;
+                    padding: 10px;
+                    margin-top: 18vw;
+                    cursor: pointer;
+                    transition: all 600ms ease-out;
+        }
+        .titulo1:hover h1{color: blueviolet;
+                          transform: scale(1.2);
+        }
+        #navegador {clear: both;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+        }
+        #navegador .paginas {width: 100%;
+                            margin: 4vw;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+        }
+        #navegador .paginas a{width: 25%;
+                              height: auto;
+                              padding: 5px;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              transition: all 500ms ease-out;
+        }
+        #navegador .paginas a .icono {width: 80%;
+                                  height: auto;
+                                  cursor: pointer;
+        }
+        #navegador .paginas .icono:hover {transform: scale(1.2);
+        }
+
+        #navegador .boton {width: 20vw;
+                           height: 8vh;
+                           margin-top: 1vw;
+                           margin-bottom: 1%;
+                           font-weight: bold;
+                           background-color: #4E00A5;
+                           border-radius: 10px;
+                           color: #E7E7E7;
+                           font-size: 1.2rem;
+                           box-shadow: 2px 5px 7px black;
+                           cursor: pointer;
+        }
+        #navegador .boton:hover {transform: scale(1.1);
+        }
+        #navegador .boton a:link{color: #E7E7E7;
+              
+              font-size: 1.2rem;
+              font-weight: bold;
+        }
+        #navegador .boton a:visited {color:#E7E7E7;
+                  
+                  font-size: 1.2rem;
+                  font-weight: bold;
+        }
+        #navegador .boton a:active{color: #E7E7E7;
+                
+                font-size: 1.2rem;
+                font-weight: bold;
+        }
+
+        #titulo2 {text-align: right;
+                  width: 40%;
+                  margin-right: 5%;
+                  font-size: 1.7rem;
+                  font-weight: bold;
+                  text-shadow: 0px 4px 5px rgb(113, 86, 145);
+                  float: right;
+        }
+
+
+        /*TRABAJAMOS SOBRTE EL CONTENEDOR FIGURA: IMAGEN Y CAPA*/
+        #imagen {width: 100%;  
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-direction: row;
+                
+        }
+
+        #imagen figure {position: relative;
+                        width: 40%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        overflow: hidden;
+                        border-radius: 6px;
+                        box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+                        cursor: pointer;}
+
+        #imagen figure img {width: 100%;
+                            height: 100%;
+                            transition: all 500ms ease-out;
+        }
+
+        #imagen figure .capa {position: absolute;
+                              top: 0;
+                              width: 100%;
+                              height: 100%;
+                              background: rgba(113, 86, 145, 0.7);
+                              transition: all 600ms ease-out;
+                              opacity: 0;
+                              visibility: hidden;
+                              text-align: center;
+        }
+        /* USAMOS HOVER!!! TANTO EN CAJA PADRE (CONTENEDOR-> FIGURE) COMO CAJA HIJA
+        (CAPA-> TEXTO Y PARRAFO) */
+
+        #imagen figure:hover > .capa {opacity: 1;
+                                      visibility: visible;
+        }
+        #imagen figure:hover > .capa h3{margin-top: 30%;
+                                        margin-bottom: 5%;
+        }
+
+        /* DAMOS FORMATO AL TEXTO h3 Y AL PARRAFO, COMO COLOR, FUENTE,
+        JUGAMOS CON LOS MARGENES DENTRO DE LA CAJA, ETC*/
+
+        #imagen figure .capa h3{color: #fff;
+                                font-family: Quicksand;
+                                font-size: 2.5rem;
+                                font-weight: bold;
+                                text-shadow: 0px 6px 5px rgb(0,0,0);
+                                margin-bottom: 70%;
+                                transition: all 600ms ease-out;
+                                margin-top: 1vw;
+            }
+        #imagen figure .capa p{color: #fff;
+                              font-family: Quicksand;
+                              font-weight: bold;
+                              font-size: 1.5rem;
+                              text-shadow: 0px 6px 5px rgb(0,0,0);
+                              line-height: 1.5;
+                              width: 100%;
+                              max-width: 220px;
+                              margin: auto;
+        }
+
+        /*POR ULTIMO CREAMOS EFECTO SOBRE LA IMAGEN CON HOVER*/
+
+        #imagen figure:hover > img{
+            transform: scale(1.1)
+        }
+        #imagen .parrafo {width: 55%;
+                          margin-top: 0%;
+                          text-indent: 1em;
+                          font-size: 1.25rem;
+                          text-align: justify;
+        }
+        .imagen .parrafo2 {display: block;
+
+        }
+
+        .texto2 {width: 100%;
+                text-indent: 1em;
+                font-size: 1.25rem;
+                margin-top: 1vw;
+                padding: 15px;
+                text-align: justify;
+        }
+        .seccion2 {display: flex;
+              justify-content: space-around;
+              align-items: center;
+              width: 100%;
+        }
+        
+        .seccion2 .ingredientes {width: 35%;
+                                  height: 40%;
+                                  padding: 1%;
+                                  line-height: 150%;
+                                  background-color: rgba(55, 44, 69, 0.85);
+                                  border-radius: 10px;
+                                  
+                                  box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+
+        }
+        .seccion2 .titulo-lista {color: white;
+                              font-size: 1.5rem;
+                              font-weight: bold;
+                              text-shadow: 0px 4px 5px rgb(196, 188, 206);
+                              letter-spacing: 0.3rem;
+                              text-align: center;
+                              margin: 1%;
+                             
+        }
+        .seccion2 .lista {text-align: center;
+                      font-size: 1.2rem;
+                      padding-bottom: 2vw;
+                      line-height: 150%;
+                      color: #EFEDF1;
+                      list-style-position: inside;
+                      list-style-image: url(../imagenes/flecha.png);
+        }
+
+        .texto4 {width: 95%;
+          text-align: center;
+                padding: 15px;
+                margin:2.5%;
+                margin-top: 25px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(55, 44, 69, 0.85);
+                border-radius: 10px;
+                padding: 2px;
+                box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+
+        }
+        .texto4 .titulo-lista {color: white;
+                              font-size: 1.8rem;
+                              font-weight: bold;
+                              text-shadow: 0px 4px 5px rgb(196, 188, 206);
+                              letter-spacing: 0.5rem;
+                              margin-top: 5vw;
+                             text-align: center;
+        }
+
+        .texto4 .lista2 {padding: 5px;
+                         text-align: justify;
+                         margin: 5vw;
+                         padding-left: 1vh;
+                         text-align: justify;
+                         font-size: 1.1rem;
+                         color: #EFEDF1;
+                            
+        }
+
+        .redes {width: 100%;
+                padding: 10px;
+                margin-top: 5vw;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+        }
+        .redes .icono2{width: 65%;
+                      height: auto;
+        }
+        .icono2:hover {transform: scale(1.3);
+                      }
+
+        .wsp {position:fixed;
+              z-index: 999;
+              border-radius: 50%;
+              bottom: 10px;
+              right: 0.5px;
+              }
+
+        .wsp .icono3 {width: 50%;
+                      height: auto;
+        }
+
+        .wsp:hover {transform: scale(1.1);
+        }
+}
+/*TRABAJAMOS PARA PANTALLAS MAYORES A 850px*/
+
+    @media (min-width: 851px) {
+
+        #filas .contenedor {position: fixed;
+                           display: flex;
+                           flex-direction: row;
+                           align-items: center;
+                           }
+
+        #filas .contenedor .logo{width: 25%;
+                                font-family: "mi_fuente";
+                                font-size: 2.8em;
+                                text-shadow: 0px 4px 5px rgb(113, 86, 145);
+                                text-align: center;
+                                padding: 5px;
+        }
+        #filas .contenedor .link {width: 70%;
+                                  font-size: 1.25rem;
+                                  font-weight: bold;
+                                  padding: 5px 5px;
+                                  display: flex;
+                                  flex-direction: row;
+                                  justify-content: space-around;
+        }
+        #filas .contenedor .link .link1 {background-color: rgba(55, 44, 69, 0.85);
+                                        border-color: rgba(55, 44, 69, 0.85);
+                                        box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+                                        color: white;
+                                        width: 20%;
+                                        height: 30%;
+                                        border-radius: 5px;
+                                        text-align: center;
+                                        transition: all 600ms ease-out;
+                                        cursor: pointer;
+        }
+        #filas .contenedor .link .link1:hover {color: blueviolet;
+                                               transform: scale(1.1);
+        }
+        .titulo1 {display: flex;
+          justify-content: center;
+
+        }
+        .titulo1 h1{width: 25%;
+                    text-shadow: 0px 4px 5px rgb(113, 86, 145);
+                    font-size: 3.5rem;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-top: 12%;
+                    cursor: pointer;
+                    transition: all 600ms ease-out;
+                    
+        }
+        .titulo1:hover h1{color: blueviolet;
+                          transform: scale(1.2);
+        }
+        #navegador {width: 98%;
+                    margin: 1%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content:space-around;
+                    align-items: center;
+                    /*background-color: yellow;*/
+        }
+        #navegador .paginas {width: 80%;
+                             margin: 1%;
+                             display: flex;
+                             justify-content: space-around;
+                            /*background-color: cyan;*/
+        }
+        #navegador .paginas a{width: 18%;
+                              height: auto;
+                              display: flex;
+                              justify-content: space-around;
+                              transition: all 500ms ease-out;
+        }
+        #navegador .paginas a .icono {width: 80%;
+                                  height: auto;
+                                  cursor: pointer;
+        }
+        #navegador .paginas .icono:hover {transform: scale(1.2);
+        }
+
+        #navegador .boton {width: 15vw;
+                           height: 7vh;
+                           margin: 1%;
+                           font-weight: bold;
+                           background-color: #4E00A5;
+                           border-radius: 10px;
+                           color: #E7E7E7;
+                           font-size: 1.25rem;
+                           box-shadow: 2px 5px 7px black;
+                           cursor: pointer;
+        }
+        #navegador .boton a:link{color: #E7E7E7;
+              
+              font-size: 1.25rem;
+              font-weight: bold;
+        }
+        #navegador .boton a:visited {color:#E7E7E7;
+                  
+                  font-size: 1.25rem;
+                  font-weight: bold;
+        }
+        #navegador .boton a:active{color: #E7E7E7;
+                
+                font-size: 1.25rem;
+                font-weight: bold;
+        }
+        #navegador .boton:hover {transform: scale(1.1);
+        }
+
+        #titulo2 {text-align: right;
+                  width: 40%;
+                  margin-right: 5%;
+                  font-size: 1.7rem;
+                  font-weight: bold;
+                  text-shadow: 0px 4px 5px rgb(113, 86, 145);
+                  float: right;
+        }
+        /*TRABAJAMOS SOBRTE EL CONTENEDOR FIGURA: IMAGEN Y CAPA*/
+        #imagen {width: 100%;  
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-direction: row;
+                
+        }
+
+        #imagen figure {position: relative;
+                        width: 40%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        overflow: hidden;
+                        border-radius: 6px;
+                        box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+                        cursor: pointer;}
+
+        #imagen figure img {width: 100%;
+                            height: 100%;
+                            transition: all 500ms ease-out;
+        }
+
+        #imagen figure .capa {position: absolute;
+                              top: 0;
+                              width: 100%;
+                              height: 100%;
+                              background: rgba(113, 86, 145, 0.7);
+                              transition: all 600ms ease-out;
+                              opacity: 0;
+                              visibility: hidden;
+                              text-align: center;
+        }
+        /* USAMOS HOVER!!! TANTO EN CAJA PADRE (CONTENEDOR-> FIGURE) COMO CAJA HIJA
+        (CAPA-> TEXTO Y PARRAFO) */
+
+        #imagen figure:hover > .capa {opacity: 1;
+                                      visibility: visible;
+        }
+        #imagen figure:hover > .capa h3{margin-top: 30%;
+                                        margin-bottom: 5%;
+        }
+
+        /* DAMOS FORMATO AL TEXTO h3 Y AL PARRAFO, COMO COLOR, FUENTE,
+        JUGAMOS CON LOS MARGENES DENTRO DE LA CAJA, ETC*/
+
+        #imagen figure .capa h3{color: #fff;
+                                font-family: Quicksand;
+                                font-size: 2.5rem;
+                                font-weight: bold;
+                                text-shadow: 0px 6px 5px rgb(0,0,0);
+                                margin-bottom: 70%;
+                                transition: all 600ms ease-out;
+                                margin-top: 1vw;
+            }
+        #imagen figure .capa p{color: #fff;
+                              font-family: Quicksand;
+                              font-weight: bold;
+                              font-size: 1.5rem;
+                              text-shadow: 0px 6px 5px rgb(0,0,0);
+                              line-height: 1.5;
+                              width: 100%;
+                              max-width: 220px;
+                              margin: auto;
+        }
+
+        /*POR ULTIMO CREAMOS EFECTO SOBRE LA IMAGEN CON HOVER*/
+
+        #imagen figure:hover > img{
+            transform: scale(1.1)
+        }
+
+        #imagen .parrafo {width: 55%;
+                          margin-top: 0%;
+                          text-indent: 1em;
+                          font-size: 1.25rem;
+                          text-align: justify;
+        }
+        #imagen .parrafo2 {display: block;
+            }
+        .texto2 {display: none;
+            width: 100%;
+                text-indent: 1em;
+                font-size: 1.25rem;
+                margin-top: 1vw;
+                padding: 15px;
+                text-align: justify;
+        }
+        .seccion2 {display: flex;
+              justify-content: space-around;
+              align-items: center;
+              width: 100%;
+        }
+        
+        .seccion2 .ingredientes {width: 35%;
+                                  height: 40%;
+                                  padding: 1%;
+                                  line-height: 150%;
+                                  background-color: rgba(55, 44, 69, 0.85);
+                                  border-radius: 10px;
+                                  
+                                  box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+
+        }
+        .seccion2 .titulo-lista {color: white;
+                              font-size: 2rem;
+                              font-weight: bold;
+                              text-shadow: 0px 4px 5px rgb(196, 188, 206);
+                              letter-spacing: 0.3rem;
+                              text-align: center;
+                              margin: 1%;
+                             
+        }
+        .seccion2 .lista {text-align: center;
+                      font-size: 1.2rem;
+                      padding-bottom: 2vw;
+                      line-height: 150%;
+                      color: #EFEDF1;
+                      list-style-position: inside;
+                      list-style-image: url(../imagenes/flecha.png);
+        }
+
+
+        .texto4 {width: 95%;
+                text-align: center;
+                padding: 15px;
+                margin:2.5%;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(55, 44, 69, 0.85);
+                border-radius: 10px;
+                padding: 2px;
+                box-shadow: 0px 7px 10px rgba(113, 86, 145,0.90);
+
+        }
+        .texto4 .titulo-lista {color: white;
+                              font-size: 2.5rem;
+                              font-weight: bold;
+                              text-shadow: 0px 4px 5px rgb(196, 188, 206);
+                              letter-spacing: 0.5rem;
+                              margin-top: 3vw;
+                             text-align: center;
+        }
+
+        .texto4 .lista2 {padding: 5px;
+                         text-align: justify;
+                         margin: 5vw;
+                         padding-left: 1vh;
+                         text-align: justify;
+                         font-size: 1.1rem;
+                         color: #EFEDF1;
+                            
+        }
+
+        .redes {width: 100%;
+                padding: 10px;
+                margin-top: 5vw;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+        }
+        .redes .icono2{width: 75%;
+                      height: auto;
+        }
+        .icono2:hover {transform: scale(1.3);
+                      }
+
+        .wsp {position:fixed;
+              z-index: 999;
+              border-radius: 50%;
+              bottom: 10px;
+              right: 0.5px;
+              }
+
+        .wsp .icono3 {width: 65%;
+                      height: auto;
+        }
+
+        .wsp:hover {transform: scale(1.1);
+        }
+}
